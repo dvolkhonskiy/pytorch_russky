@@ -54,7 +54,7 @@ def fetch_lfw_dataset(attrs_name = "lfw_attributes.txt",
 
     #mass-merge
     #(photos now have same order as attributes)
-    df = pd.merge(df_attrs,photo_ids,on=('person','imagenum'))
+    df = pd.concat(df_attrs,photo_ids,on=('person','imagenum'))
 
     assert len(df)==len(df_attrs),"lost some data when merging dataframes"
 
